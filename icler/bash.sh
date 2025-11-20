@@ -1,0 +1,18 @@
+torchrun --nproc_per_node 1 \
+-m training.run \
+--output_dir test_path \
+--model_name_or_path  /data0/pre_trained_model/Qwen2.5-3B-Instruct/  \
+--model_type bert \
+--pooling_method mean \
+--train_data training/toy_data \
+--learning_rate 1e-5 \
+--num_train_epochs 5 \
+--per_device_train_batch_size 2 \
+--dataloader_drop_last True \
+--normalized True \
+--temperature 0.02 \
+--query_max_len 32 \
+--passage_max_len 128 \
+--train_group_size 2 \
+--mode unified \
+--attn cccc
